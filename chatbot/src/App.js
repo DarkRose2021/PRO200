@@ -2,6 +2,8 @@ import './App.css';
 import { Configuration, OpenAIApi } from 'openai'
 
 
+import logo from './logo.svg';
+import './App.scss';
 
 function App() {
   
