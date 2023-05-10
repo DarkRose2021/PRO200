@@ -20,6 +20,27 @@ function App() {
 	return (
 		<div className="App">
 			<button onClick={generateImage}>Generate Image</button>
+
+			<div className='container'>
+				<div>
+					<div className='ai'>
+
+					</div>
+					<div className='user-txt'>
+
+					</div>
+				</div>
+			</div>
+			<div className='form'>
+				<div>
+
+				
+				<form>
+					<input type='text' placeholder='Ask the AI something' />
+					<button type="submit">Generate Response</button>
+				</form>
+				</div>
+			</div>
 		</div>
 	);
 }
