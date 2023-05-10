@@ -6,6 +6,7 @@ $purple: #6b4682ff;
 
 body{
   background-color: $bg;
+  width: 100%;
 }
 
 @mixin flex-center{

@@ -22,12 +22,12 @@ function App() {
 			<button onClick={generateImage}>Generate Image</button>
 
 			<div className="container">
-				<div>
-					<div className="ai"></div>
-					<div className="user-txt"></div>
+				<div className='background'>
+					<div className="ai">Testing AI Area</div>
+					<div className="user-txt">Testing User Area</div>
 				</div>
 			</div>
-			
+
 			<div className="form">
 				<div>
 					<form>

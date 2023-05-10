@@ -2,28 +2,74 @@
 
 .form {
 	@include flex-center();
+	flex-direction: row;
 	position: fixed;
-	left: 0;
 	bottom: 0;
-	right: 0;
+	
 	width: 100%;
 	padding: 0.5%;
 
 	form {
-		width: max-content;
+		background-color: $blue;
+		border-radius: 5px;
+		width: 1500px;
+		padding: .5%
+		// height: 
 	}
 
 	input {
-		width: 20em;
+		width: 75%;
+		background-color: #35606B;
+		border: 6px solid #35606B;
+		border-radius: 5px;
+		color: $bg;
 	}
 
 	button {
 		background-color: $purple;
 		border: none;
-		padding: 2%;
-		margin: 2%;
+		padding: 1%;
+		margin: 1%;
 		color: $bg;
+		width: fit-content;
 		cursor: pointer;
 		@include borderRadius();
+	}
+}
+
+.container{
+	@include flex-center;
+	margin-top: 2%;
+	.background{
+		background-color: $blue;
+		width: 75%;
+		border-radius: 5px;
+		flex-direction: column;
+	}
+	.ai{
+		border-radius: 5px;
+		background-color: $red;
+		width: 25%;
+		margin-right: 50%;
+		float: left;
+		overflow: hidden;
+		overflow: scroll;
+		max-width: fit-content;
+		padding: 1%;
+		margin: 1%;
+		color: $bg;
+	}
+	.user-txt{
+		border-radius: 5px;
+		background-color: $green;
+		width: 25%;
+		margin-left: 50%;
+		float: right;
+		overflow: hidden;
+		overflow: scroll;
+		max-width: fit-content;
+		padding: 1%;
+		margin: 1%;
+		color: $bg;
 	}
 }
