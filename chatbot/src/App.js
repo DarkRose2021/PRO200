@@ -21,24 +21,19 @@ function App() {
 		<div className="App">
 			<button onClick={generateImage}>Generate Image</button>
 
-			<div className='container'>
+			<div className="container">
 				<div>
-					<div className='ai'>
-
-					</div>
-					<div className='user-txt'>
-
-					</div>
+					<div className="ai"></div>
+					<div className="user-txt"></div>
 				</div>
 			</div>
-			<div className='form'>
+			
+			<div className="form">
 				<div>
-
-				
-				<form>
-					<input type='text' placeholder='Ask the AI something' />
-					<button type="submit">Generate Response</button>
-				</form>
+					<form>
+						<input type="text" placeholder="Ask the AI something" />
+						<button type="submit">Generate Response</button>
+					</form>
 				</div>
 			</div>
 		</div>
