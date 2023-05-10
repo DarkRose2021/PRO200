@@ -7,6 +7,22 @@ const port = 2000;
 
 app.use(cors());
 
+let testing = [
+    {
+        name: "Sam",
+        chat: "How are you",
+        answer: "I don't know"
+    }
+]
+
+app.get("/test", (req, res) => {
+    let test = testing;
+    let responseData = {
+        results: test
+    }
+    res.json(responseData)
+})
+
 app.get("/", (req, res) => {
     res.send("Hey");
 });
