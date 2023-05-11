@@ -2,13 +2,13 @@ import React from "react";
 import "../App.scss";
 
 const Chat = (props) => {
-    // console.log(props.name)
+    console.log(props.data[0].name)
 	return (
 		<div>
 			<div className="container">
 				<div>
-					<div className="ai">{props.name}</div>
-					<div className="user-txt">{props.chat}</div>
+					<div className="ai">{props.data[0].name}</div>
+					<div className="user-txt">{props.data[0].chat}</div>
 				</div>
 			</div>
 			<div className="form">
