@@ -1,5 +1,4 @@
 
-import { Configuration, OpenAIApi } from "openai";
 import "./App.scss";
 
  function App() {
