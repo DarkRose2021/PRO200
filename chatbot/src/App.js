@@ -1,5 +1,4 @@
 
-import { Configuration, OpenAIApi } from "openai";
 import "./App.scss";
 import Chat from "./pages/Chat";
 import { useEffect, useState } from "react";
