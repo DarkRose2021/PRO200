@@ -1,5 +1,7 @@
 
 import "./App.scss";
+import Chat from "./pages/Chat";
+import { useEffect, useState } from "react";
 
  function App() {
 	const configuration = new Configuration({
@@ -17,25 +19,31 @@ import "./App.scss";
 		// console.log(res.data.data[0].url);
 	// };
 
+	const url = "http://localhost:2000/test"
+	const [testData, setTestData] = useState([])
+
+	useEffect(() => {
+		loadApi();
+	}, []);
+
+	const loadApi = () => {
+		fetch(url)
+			.then((resp) => resp.json())
+			.then((data) => {
+				console.log(data.results);
+				setTestData(data.results);
+			})
+			.catch((err) => console.log(err));
+	};
+
+
 	return (
 		<div className="App">
 			{/* <button onClick={generateImage}>Generate Image</button> */}
-
-			<div className="container">
-				<div>
-					<div className="ai"></div>
-					<div className="user-txt"></div>
-				</div>
-			</div>
+			{
+				testData ? <Chat data={testData} />:<></>
+			}
 			
-			<div className="form">
-				<div>
-					<form>
-						<input type="text" placeholder="Ask the AI something" />
-						<button type="submit">Generate Response</button>
-					</form>
-				</div>
-			</div>
 		</div>
 	);
 }
