@@ -5,7 +5,7 @@ import Chat from "./pages/Chat";
 
 function App() {
 	const url = "http://localhost:2000/test"
-	const [testData, setTestData] = useState([])
+	const [data, setData] = useState([])
 
 	useEffect(() => {
 		loadApi();
@@ -16,7 +16,7 @@ function App() {
 			.then((resp) => resp.json())
 			.then((data) => {
 				console.log(data.results);
-				setTestData(data.results);
+				setData(data.results);
 			})
 			.catch((err) => console.log(err));
 	};
@@ -25,7 +25,7 @@ function App() {
 		<div className="App">
 			{/* <button onClick={generateImage}>Generate Image</button> */}
 			{
-				testData ? <Chat data={testData} />:<></>
+				data ? <Chat data={data} />:<></>
 			}
 		</div>
 	);

@@ -43,6 +43,5 @@ const generateImage = async () => {
     });
     console.log(res.data.data[0].url);
 };
-	
 
 app.listen(port, () => {console.log(`Express listening on port ${port}`)});
