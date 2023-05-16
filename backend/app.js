@@ -34,7 +34,7 @@ app.get("/test", (req, res) => {
 })
 
 app.get("/", (req, res) => {
-    res.send("Yo");
+    res.send("Hey");
 });
 
 app.get("/chat", (req, res) => {
