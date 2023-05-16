@@ -8,6 +8,7 @@
 	
 	width: 100%;
 	padding: 0.5%;
+	background-color: $blue;
 
 	form {
 		background-color: $blue;
@@ -37,39 +38,35 @@
 	}
 }
 
-.container{
-	@include flex-center;
-	margin-top: 2%;
-	.background{
+.container {
+	@include flex-center();
+	color: $bg;
+	div {
 		background-color: $blue;
-		width: 75%;
-		border-radius: 5px;
-		flex-direction: column;
-	}
-	.ai{
-		border-radius: 5px;
-		background-color: $red;
-		width: 25%;
-		margin-right: 50%;
-		float: left;
-		overflow: hidden;
-		overflow: scroll;
-		max-width: fit-content;
+		display: block;
 		padding: 1%;
-		margin: 1%;
-		color: $bg;
+		width: 900px;
+		@include borderRadius;
 	}
-	.user-txt{
-		border-radius: 5px;
+	.user-txt {
 		background-color: $green;
-		width: 25%;
 		margin-left: 50%;
 		float: right;
-		overflow: hidden;
-		overflow: scroll;
-		max-width: fit-content;
+	}
+	.ai {
+		background-color: $red;
+		margin-right: 50%;
+		float: left;
+	}
+	.user-txt,
+	.ai {
 		padding: 1%;
-		margin: 1%;
-		color: $bg;
+
+		max-width: fit-content;
+		overflow: scroll;
+		padding: 1%;
+		border-radius: 5px;
+
+		overflow: hidden;
 	}
 }

@@ -2,19 +2,21 @@ import { Configuration, OpenAIApi } from "openai";
 import "./App.scss";
 
 function App() {
-	const configuration = new Configuration({
-		apiKey: process.env.REACT_APP_OPENAI_API_KEY,
-	});
+	const url = "http://localhost:2000/test"
+	const [testData, setTestData] = useState([])
 
-	const openai = new OpenAIApi(configuration);
+	useEffect(() => {
+		loadApi();
+	}, []);
 
-	const generateImage = async () => {
-		const res = await openai.createImage({
-			prompt: "a white siamese cat",
-			n: 1,
-			size: "1024x1024",
-		});
-		console.log(res.data.data[0].url);
+	const loadApi = () => {
+		fetch(url)
+			.then((resp) => resp.json())
+			.then((data) => {
+				console.log(data.results);
+				setTestData(data.results);
+			})
+			.catch((err) => console.log(err));
 	};
 
 	return (
