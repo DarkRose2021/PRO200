@@ -10,11 +10,15 @@ const port = 2000;
 app.use(cors());
 
 app.get("/", (req, res) => {
-    res.send("Hey");
+    res.send("Yo");
 });
 
+app.post("/image", (req, res) => {
+    req.send(generateImage());
+})
+
 const configuration = new Configuration({
-    apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+    apiKey: `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`,
 });
 
 const openai = new OpenAIApi(configuration);
@@ -23,10 +27,11 @@ const generateImage = async () => {
     const res = await openai.createImage({
         prompt: "a white siamese cat",
         n: 1,
-        size: "1024x1024",
+        size: "256x256",
     });
     console.log(res.data.data[0].url);
 };
+
 	
 
 app.listen(port, () => {console.log(`Express listening on port ${port}`)});
