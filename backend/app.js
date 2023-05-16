@@ -2,12 +2,20 @@ const { Configuration, OpenAIApi } = require("openai");
 const cors = require('cors');
 const express = require('express');
 const openAi = require('openai');
+require('dotenv').config()
 
 const app = express();
 
 const port = 2000;
 
 app.use(cors());
+
+const configuration = new Configuration({
+    organization: 'org-OU327dCg9JrXyz2slt1x5ZoZ',
+    apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+});
+
+const openai = new OpenAIApi(configuration);
 
 let testing = [
     {
@@ -29,25 +37,25 @@ app.get("/", (req, res) => {
     res.send("Yo");
 });
 
-app.post("/image", (req, res) => {
-    req.send(generateImage());
+app.get("/chat", (req, res) => {
+    let messageData = [
+    {
+        model: "gpt-3.5-turbo",
+        messages: [{role: "user", content: "Hello world", name: "Design Chatbot"}],
+    }
+]
+    res.json();
 })
 
-const configuration = new Configuration({
-    apiKey: `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`,
-});
-
-const openai = new OpenAIApi(configuration);
-
-const generateImage = async () => {
-    const res = await openai.createImage({
-        prompt: "a white siamese cat",
-        n: 1,
-        size: "256x256",
-    });
-    console.log(res.data.data[0].url);
+const generateCompletion = async () => {
+    const completion = await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [{role: "user", content: "Hello world"}],
+      });
+      console.log(completion.data.choices[0].message);
 };
 
-	
+generateCompletion();
+
 
 app.listen(port, () => {console.log(`Express listening on port ${port}`)});
