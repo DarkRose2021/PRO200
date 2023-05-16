@@ -1,5 +1,7 @@
 import { Configuration, OpenAIApi } from "openai";
+import React, { useEffect, useState } from "react";
 import "./App.scss";
+import Chat from "./pages/Chat";
 
 function App() {
 	const url = "http://localhost:2000/test"
@@ -21,23 +23,10 @@ function App() {
 
 	return (
 		<div className="App">
-			<button onClick={generateImage}>Generate Image</button>
-
-			<div className="container">
-				<div className='background'>
-					<div className="ai">Testing AI Area</div>
-					<div className="user-txt">Testing User Area</div>
-				</div>
-			</div>
-
-			<div className="form">
-				<div>
-					<form>
-						<input type="text" placeholder="Ask the AI something" />
-						<button type="submit">Generate Response</button>
-					</form>
-				</div>
-			</div>
+			{/* <button onClick={generateImage}>Generate Image</button> */}
+			{
+				testData ? <Chat data={testData} />:<></>
+			}
 		</div>
 	);
 }
