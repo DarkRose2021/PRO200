@@ -12,6 +12,13 @@ const Chat = (props) => {
 		}
 	};
 
+	const url = "http://localhost:2000/chat"
+	// let sendData = () => {
+	// 	axios.post(url, user)
+	// 	   .then(res => console.log('Data send'))
+	// 	   .catch(err => console.log(err.data))
+	// 	}
+
 	const usertxt = () => {
 		console.log(user);
 	};
@@ -20,7 +27,7 @@ const Chat = (props) => {
 		<div>
 			<div className="container">
 				<div>
-					<div className="ai">{props.data[0]?.name}</div>
+					<div className="ai">{props.data[0]?.results.content}</div>
 					<div className="user-txt">{user}</div>
 				</div>
 			</div>
@@ -30,9 +37,9 @@ const Chat = (props) => {
 						<input
 							type="text"
 							placeholder="Ask the AI something"
-							onChange={(evt) => setUser(evt.target.value)}
+							onSubmit={(evt) => setUser(evt.target.value)}
 						/>
-						<button type="submit" value="submit">Generate Response</button>
+						<button type="submit" value="submit" onSubmit={(evt) => setUser(evt.target.value)}>Generate Response</button>
 					</form>
 				</div>
 			</div>

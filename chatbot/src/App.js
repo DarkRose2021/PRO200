@@ -4,7 +4,7 @@ import "./App.scss";
 import Chat from "./pages/Chat";
 
 function App() {
-	const url = "http://localhost:2000/test"
+	const url = "http://localhost:2000/chat"
 	const [testData, setTestData] = useState([])
 
 	useEffect(() => {
@@ -15,8 +15,8 @@ function App() {
 		fetch(url)
 			.then((resp) => resp.json())
 			.then((data) => {
-				console.log(data.results);
-				setTestData(data.results);
+				console.log(data);
+				setTestData(data);
 			})
 			.catch((err) => console.log(err));
 	};
@@ -28,6 +28,32 @@ function App() {
 			{
 				testData ? <Chat data={testData} />:<></>
 			}
+
+			{/* <section>
+				<button>+ New Chat</button>
+				<ul className="history">
+
+				</ul>
+				<nav>
+					<p>Made by </p>
+				</nav>
+			</section>
+				
+			<section>
+			<h1>DesignBot</h1>
+			<ul>
+				<li></li>
+			</ul>
+			<div>
+				<div>
+					<input />
+					<div id="Submit">go</div>
+				</div>
+				<p>
+					testing
+				</p>
+			</div>
+			</section> */}
 		</div>
 	);
 }

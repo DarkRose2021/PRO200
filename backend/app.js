@@ -1,61 +1,67 @@
 const { Configuration, OpenAIApi } = require("openai");
-const cors = require('cors');
-const express = require('express');
-const openAi = require('openai');
-require('dotenv').config()
+const cors = require("cors");
+const express = require("express");
+const openAi = require("openai");
+require("dotenv").config();
 
 const app = express();
 
 const port = 2000;
 
 app.use(cors());
+app.use(express());
+app.use(express.json());
 
+// app.post("", (req, res) => {
+//     try{
+//         fetch('')
+//     }catch(error{
+//         console.error(error)
+//     }
+// })
 const configuration = new Configuration({
-    organization: 'org-OU327dCg9JrXyz2slt1x5ZoZ',
-    apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+	// organization: "org-OU327dCg9JrXyz2slt1x5ZoZ",
+	apiKey: process.env.REACT_APP_OPENAI_API_KEY,
 });
+//process.env.REACT_APP_OPENAI_API_KEY
 
 const openai = new OpenAIApi(configuration);
 
-let testing = [
-    {
-        name: "Sam",
-        chat: "How are you",
-        answer: "I don't know"
-    }
-]
-
-app.get("/test", (req, res) => {
-    let test = testing;
-    let responseData = {
-        results: test
-    }
-    res.json(responseData)
-})
-
 app.get("/", (req, res) => {
-    res.send("Hey");
+	res.send("Hey");
 });
 
-app.get("/chat", (req, res) => {
-    let messageData = [
-    {
-        model: "gpt-3.5-turbo",
-        messages: [{role: "user", content: "Hello world", name: "Design Chatbot"}],
-    }
-]
-    res.json();
-})
+app.get("/chat", async (req, res) => {
+//     const url = "http://localhost:2000/chat"
+// const usersData= [];
 
-const generateCompletion = async () => {
-    const completion = await openai.createChatCompletion({
-        model: "gpt-3.5-turbo",
-        messages: [{role: "user", content: "Hello world"}],
-      });
-      console.log(completion.data.choices[0].message);
+// let getData = () => {
+// axios.get(url)
+//    .then(res => usersData.push(res.data))x   
+//    .catch(err => console.log(err.data))
+// }
+// console.log(getData)
+	let chat = await generateCompletion()
+    let messageData = [
+        {
+            results: chat
+        }
+    ]
+    console.log(chat)
+
+    res.json(messageData);
+});
+
+const generateCompletion = async (content) => {
+	const completion = await openai.createChatCompletion({
+		model: "gpt-3.5-turbo",
+		messages: [{ role: "user", content: "Hello World" }],
+	});
+    return completion.data.choices[0].message
 };
 
-generateCompletion();
+// generateCompletion();
 
-
-app.listen(port, () => {console.log(`Express listening on port ${port}`)});
+app.listen(port, () => {
+	console.log(`Express listening on port ${port}`);
+});
