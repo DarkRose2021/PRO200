@@ -1,45 +1,53 @@
 import React, { useEffect, useState } from "react";
 import "../App.scss";
 
-const Chat = (props) => {
-	const [user, setUser] = useState("user");
+const Chat = () => {
+	const [user, setUser] = useState([]);
+	const [input, setInput] = useState("");
+	// const [ai, setAi] = useState();
 
 	const handleSearch = (event) => {
 		event.preventDefault();
-
-		if (user !== "") {
-			usertxt();
-		}
+		setUser([...user, input]);
+		console.log(user);
+		setInput("");
 	};
 
-	const url = "http://localhost:2000/chat"
-	// let sendData = () => {
-	// 	axios.post(url, user)
-	// 	   .then(res => console.log('Data send'))
-	// 	   .catch(err => console.log(err.data))
-	// 	}
-
-	const usertxt = () => {
-		console.log(user);
+	const handleChange = (event) => {
+		setInput(event.target.value);
 	};
 
 	return (
 		<div>
 			<div className="container">
-				<div>
-					<div className="ai">{props.data[0]?.results.content}</div>
-					<div className="user-txt">{user}</div>
-				</div>
+				{user && user.length > 0 ? (
+					<div>
+						{user.map((chat) => (
+							<>
+								<div className="user-txt">{chat}</div>
+								<div className="ai"></div>
+							</>
+						))}
+						<div></div>
+					</div>
+				) : (
+					<div></div>
+				)}
 			</div>
+
 			<div className="form">
 				<div>
 					<form onSubmit={handleSearch}>
 						<input
 							type="text"
 							placeholder="Ask the AI something"
-							onSubmit={(evt) => setUser(evt.target.value)}
+							value={input}
+							onChange={handleChange}
+							required
 						/>
-						<button type="submit" value="submit" onSubmit={(evt) => setUser(evt.target.value)}>Generate Response</button>
+						<button type="submit" value="submit">
+							Generate Response
+						</button>
 					</form>
 				</div>
 			</div>

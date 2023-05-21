@@ -12,13 +12,6 @@ app.use(cors());
 app.use(express());
 app.use(express.json());
 
-// app.post("", (req, res) => {
-//     try{
-//         fetch('')
-//     }catch(error{
-//         console.error(error)
-//     }
-// })
 const configuration = new Configuration({
 	// organization: "org-OU327dCg9JrXyz2slt1x5ZoZ",
 	apiKey: process.env.REACT_APP_OPENAI_API_KEY,
