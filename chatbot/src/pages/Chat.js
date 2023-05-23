@@ -28,8 +28,7 @@ const Chat = () => {
 				console.log(aiData +" ai data")
 			})
 			.catch((err) =>
-				console.log(err)
-				// setAiData("Rate Limit Reached, Try again in a few minutes")
+				aiData = "Rate Limit Reached, Try again in a few minutes"
 			);
 	};
 
@@ -48,7 +47,6 @@ const Chat = () => {
 			userTxt: inputValue.user,
 		};
 		setDataArray([...dataArray, newDataObject]);
-		// setAiData("");
 		setInputValue({
 			user: ""
 		});
