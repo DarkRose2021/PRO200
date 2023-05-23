@@ -6,7 +6,6 @@ const Chat = () => {
 	const [inputValue, setInputValue] = useState({
 		user: ""
 	});
-	// const [aiData, setAiData] = useState("");
 	let aiData = ""
 
 	const url = "http://localhost:2000/chat";
