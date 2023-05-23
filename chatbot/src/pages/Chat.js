@@ -2,30 +2,67 @@ import React, { useEffect, useState } from "react";
 import "../App.scss";
 
 const Chat = () => {
-	const [user, setUser] = useState([]);
-	const [input, setInput] = useState("");
-	// const [ai, setAi] = useState();
+	const [dataArray, setDataArray] = useState([]);
+	const [inputValue, setInputValue] = useState({
+		user: ""
+	});
+	// const [aiData, setAiData] = useState("");
+	let aiData = ""
 
-	const handleSearch = (event) => {
-		event.preventDefault();
-		setUser([...user, input]);
-		console.log(user);
-		setInput("");
+	const url = "http://localhost:2000/chat";
+
+	const loadApi = async () => {
+		console.log(JSON.stringify(inputValue))
+		await fetch(url, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(inputValue),
+		})
+			.then((resp) => resp.json())
+			.then((data) => {
+				console.log("api: " + data[0].results.content);
+				aiData = data[0].results.content;
+				// setAiData(data[0].results.content);
+				console.log(aiData +" ai data")
+			})
+			.catch((err) =>
+				console.log(err)
+				// setAiData("Rate Limit Reached, Try again in a few minutes")
+			);
 	};
 
 	const handleChange = (event) => {
-		setInput(event.target.value);
+		setInputValue({
+			user: event.target.value
+		});
+	};
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		await loadApi();
+		console.log("Creating data object")
+		const newDataObject = {
+			aiTxt: aiData,
+			userTxt: inputValue.user,
+		};
+		setDataArray([...dataArray, newDataObject]);
+		// setAiData("");
+		setInputValue({
+			user: ""
+		});
 	};
 
 	return (
 		<div>
 			<div className="container">
-				{user && user.length > 0 ? (
+				{dataArray && dataArray.length > 0 ? (
 					<div>
-						{user.map((chat) => (
+						{dataArray.map((data) => (
 							<>
-								<div className="user-txt">{chat}</div>
-								<div className="ai"></div>
+								<div className="user-txt">{data.userTxt}</div>
+								<div className="ai">{data.aiTxt}</div>
 							</>
 						))}
 						<div></div>
@@ -37,11 +74,12 @@ const Chat = () => {
 
 			<div className="form">
 				<div>
-					<form onSubmit={handleSearch}>
+					<form onSubmit={handleSubmit}>
 						<input
 							type="text"
+							name="user"
 							placeholder="Ask the AI something"
-							value={input}
+							value={inputValue.user}
 							onChange={handleChange}
 							required
 						/>
