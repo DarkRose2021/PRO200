@@ -12,13 +12,6 @@ app.use(cors());
 app.use(express());
 app.use(express.json());
 
-// app.post("", (req, res) => {
-//     try{
-//         fetch('')
-//     }catch(error{
-//         console.error(error)
-//     }
-// })
 const configuration = new Configuration({
 	// organization: "org-OU327dCg9JrXyz2slt1x5ZoZ",
 	apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -31,31 +24,33 @@ app.get("/", (req, res) => {
 	res.send("Hey");
 });
 
-app.get("/chat", async (req, res) => {
-//     const url = "http://localhost:2000/chat"
-// const usersData= [];
+app.get("/chat", async (req, res) =>{
+	res.send("Chat")
+})
 
-// let getData = () => {
-// axios.get(url)
-//    .then(res => usersData.push(res.data))x   
-//    .catch(err => console.log(err.data))
-// }
-// console.log(getData)
-	let chat = await generateCompletion()
-    let messageData = [
-        {
-            results: chat
-        }
-    ]
-    console.log(chat)
-
-    res.json(messageData);
+app.post("/chat", async (req, res) => {
+	try{
+		const inputValue = req.body
+		console.log(inputValue.user)
+		let chat = await generateCompletion(inputValue.user)
+		let messageData = [
+			{
+				results: chat
+			}
+		]
+		console.log(chat)
+	
+		res.json(messageData);
+	}catch(err){
+		res.json({content: "Rate Limit Reached, Try again in a few minutes"})
+	}
+	
 });
 
 const generateCompletion = async (content) => {
 	const completion = await openai.createChatCompletion({
 		model: "gpt-3.5-turbo",
-		messages: [{ role: "user", content: "Hello World" }],
+		messages: [{ role: "user", content: content }],
 	});
     return completion.data.choices[0].message
 };
