@@ -3,9 +3,12 @@
 .form {
 	@include flex-center();
 	flex-direction: row;
-	position: fixed;
+	position: absolute;
+	right: 0;
 	bottom: 0;
-	width: 99%;
+	left: 0;
+	padding: 1rem;
+	width: 100vw;
 	background-color: $blue;
 
 	form {
@@ -13,13 +16,13 @@
 		background-color: $blue;
 		@include borderRadius;
 		width: 50em;
-		padding: 1%
+		padding: 1%;
 	}
 
 	input {
 		width: 20em;
-		background-color: #35606B;
-		border: 6px solid #35606B;
+		background-color: #35606b;
+		border: 6px solid #35606b;
 		border-radius: 5px;
 		color: $bg;
 	}
@@ -35,15 +38,24 @@
 		@include borderRadius();
 	}
 }
+.center{
+	@include flex-center();
+}
 
 .container {
-	@include flex-center();
 	color: $bg;
+	margin: 0.5%;
+	width: 60vw;
+    height: 65vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+
 	div {
 		background-color: $blue;
 		display: block;
 		padding: 1%;
-		width: 900px;
+		// max-width: 75%;
+		overflow: scroll;
 		@include borderRadius;
 	}
 	.user-txt {
@@ -51,18 +63,27 @@
 		margin-left: 50%;
 		float: right;
 		width: fit-content;
+		max-width: 50%;
+		max-height: 50%;
+		white-space: pre-line;
+		overflow-wrap: normal;
+		overflow: scroll;
 	}
 	.ai {
+		white-space: pre-line;
+		overflow-wrap: normal;
 		background-color: $red;
 		margin-right: 50%;
 		float: left;
 		width: fit-content;
+		max-width: 50%;
+		max-height: 50%;
+		overflow: scroll;
 	}
 	.user-txt,
 	.ai {
 		padding: 1%;
 		max-width: 45%;
-		overflow: scroll;
 		padding: 1%;
 		border-radius: 5px;
 	}

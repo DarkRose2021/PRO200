@@ -4,9 +4,27 @@ $blue: #559cadff;
 $green: #31493cff;
 $purple: #6b4682ff;
 
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body{
   background-color: $bg;
-  width: 100%;
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+h1{
+  text-align: center;
 }
 
 @mixin flex-center{

@@ -52,7 +52,8 @@ const Chat = () => {
 	};
 
 	return (
-		<div>
+		<div className="center">
+			{/* <h1>Start typing to begin!</h1> */}
 			<div className="container">
 				{dataArray && dataArray.length > 0 ? (
 					<div>
