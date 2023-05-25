@@ -63,7 +63,7 @@ const Chat = () => {
 								<div className="ai">{data.aiTxt}</div>
 							</>
 						))}
-						<div></div>
+						
 					</div>
 				) : (
 					<div></div>
