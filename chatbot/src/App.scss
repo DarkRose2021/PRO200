@@ -1,6 +1,9 @@
 @import "../src/index.scss";
-
 .form {
+	::-webkit-scrollbar{
+		display: none;
+	}
+
 	@include flex-center();
 	flex-direction: row;
 	position: absolute;
@@ -37,6 +40,8 @@
 		cursor: pointer;
 		@include borderRadius();
 	}
+
+	
 }
 .center{
 	@include flex-center();
@@ -47,15 +52,17 @@
 	margin: 0.5%;
 	width: 60vw;
     height: 65vh;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: auto;
 
+	
 	div {
 		background-color: $blue;
 		display: block;
 		padding: 1%;
 		// max-width: 75%;
-		overflow: scroll;
+		overflow: auto;
+		overflow-y: scroll;
 		@include borderRadius;
 	}
 	.user-txt {
@@ -67,7 +74,7 @@
 		max-height: 50%;
 		white-space: pre-line;
 		overflow-wrap: normal;
-		overflow: scroll;
+		overflow: auto;
 	}
 	.ai {
 		white-space: pre-line;
@@ -78,7 +85,7 @@
 		width: fit-content;
 		max-width: 50%;
 		max-height: 50%;
-		overflow: scroll;
+		overflow: auto;
 	}
 	.user-txt,
 	.ai {

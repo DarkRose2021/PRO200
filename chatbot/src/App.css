@@ -1,0 +1,118 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #f3fcf0;
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: row;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  width: 100vw;
+  background-color: #559cad;
+}
+.form ::-webkit-scrollbar {
+  display: none;
+}
+.form form {
+  display: block;
+  background-color: #559cad;
+  border-radius: 5px;
+  width: 50em;
+  padding: 1%;
+}
+.form input {
+  width: 20em;
+  background-color: #35606b;
+  border: 6px solid #35606b;
+  border-radius: 5px;
+  color: #f3fcf0;
+}
+.form button {
+  background-color: #6b4682;
+  border: none;
+  padding: 2%;
+  margin: 1%;
+  color: #f3fcf0;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.center {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.container {
+  color: #f3fcf0;
+  margin: 0.5%;
+  width: 60vw;
+  height: 65vh;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.container div {
+  background-color: #559cad;
+  display: block;
+  padding: 1%;
+  overflow: auto;
+  overflow-y: scroll;
+  border-radius: 5px;
+}
+.container .user-txt {
+  background-color: #31493c;
+  margin-left: 50%;
+  float: right;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 50%;
+  max-height: 50%;
+  white-space: pre-line;
+  overflow-wrap: normal;
+  overflow: auto;
+}
+.container .ai {
+  white-space: pre-line;
+  overflow-wrap: normal;
+  background-color: #6b2737;
+  margin-right: 50%;
+  float: left;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 50%;
+  max-height: 50%;
+  overflow: auto;
+}
+.container .user-txt,
+.container .ai {
+  padding: 1%;
+  max-width: 45%;
+  padding: 1%;
+  border-radius: 5px;
+}/*# sourceMappingURL=App.css.map */
