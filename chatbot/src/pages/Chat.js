@@ -60,6 +60,7 @@ const Chat = () => {
 		<div>
 		<div className="center">
 			<div className="container">
+			
 				{dataArray && dataArray.length > 0 ? (
 					<div>
 						{dataArray.map((data) => (
@@ -76,7 +77,9 @@ const Chat = () => {
 			</div>
 
 			{
-				loading ? (<h3 className="response">Loading Response.....</h3>):(<br />)
+				
+				loading ? <h3 className="center loading">Loading</h3> : <br />
+			
 			}
 
 			<div className="form">

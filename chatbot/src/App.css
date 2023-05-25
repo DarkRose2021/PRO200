@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   height: 100%;
   box-sizing: border-box;
@@ -115,4 +116,25 @@ h1 {
   max-width: 45%;
   padding: 1%;
   border-radius: 5px;
+}
+
+.loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  animation: ellipsis steps(4, end) 900ms infinite;
+  content: "…";
+  /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 40px;
+  }
+}
+.response {
+  text-align: center;
+  font-weight: bold;
+  color: #2A2A2A;
 }/*# sourceMappingURL=App.css.map */
