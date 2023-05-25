@@ -6,12 +6,14 @@ const Chat = () => {
 	const [inputValue, setInputValue] = useState({
 		user: ""
 	});
+	const [loading, setLoading] = useState(false);
 	let aiData = ""
 
 	const url = "http://localhost:2000/chat";
 
 	const loadApi = async () => {
 		console.log(JSON.stringify(inputValue))
+		setLoading(true);
 		await fetch(url, {
 			method: "POST",
 			headers: {
@@ -28,7 +30,10 @@ const Chat = () => {
 			})
 			.catch((err) =>
 				aiData = "Rate Limit Reached, Try again in a few minutes"
-			);
+			)
+			.finally(() => {
+				setLoading(false);
+			})
 	};
 
 	const handleChange = (event) => {
@@ -52,8 +57,8 @@ const Chat = () => {
 	};
 
 	return (
+		<div>
 		<div className="center">
-			{/* <h1>Start typing to begin!</h1> */}
 			<div className="container">
 				{dataArray && dataArray.length > 0 ? (
 					<div>
@@ -63,12 +68,16 @@ const Chat = () => {
 								<div className="ai">{data.aiTxt}</div>
 							</>
 						))}
-						<div></div>
 					</div>
 				) : (
 					<div></div>
 				)}
 			</div>
+			</div>
+
+			{
+				loading ? (<h3 className="response">Loading Response.....</h3>):(<br />)
+			}
 
 			<div className="form">
 				<div>

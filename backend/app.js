@@ -16,7 +16,7 @@ const configuration = new Configuration({
 	// organization: "org-OU327dCg9JrXyz2slt1x5ZoZ",
 	apiKey: process.env.REACT_APP_OPENAI_API_KEY,
 });
-//process.env.REACT_APP_OPENAI_API_KEY
+//
 
 const openai = new OpenAIApi(configuration);
 
