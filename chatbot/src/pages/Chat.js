@@ -80,7 +80,12 @@ const Chat = () => {
 						))}
 					</div>
 				) : (
-					<div></div>
+					<>
+					<h1>Welcome to Our Chatbot!</h1>
+					<div className="start">
+						This chatbot was made by Grace &amp; Katie. Start typing in the box below to get started!
+					</div>
+					</>
 				)}
 			</div>
 			</div>
