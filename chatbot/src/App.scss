@@ -3,9 +3,7 @@ button {
 	margin: 1%;
 }
 
-body{
-	background-color: $bg;
-}
+
 
 .center{
 	@include flex-center();

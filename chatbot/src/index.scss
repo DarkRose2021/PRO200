@@ -15,6 +15,14 @@ html {
   box-sizing: inherit;
 }
 
+.light{
+	background-color: $bg;
+}
+
+.dark{
+	background-color: #2A2A2A
+}
+
 body{
   position: relative;
   margin: 0;

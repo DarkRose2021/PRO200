@@ -3,7 +3,7 @@ import "../App.scss";
 // import "../App2.scss";
 
 const Chat = () => {
-	// const [stylePath, setStylePath] = useState('./chatbot/public/App.scss');
+	const [isActive, setActive] = useState("false")
 	
 	const [dataArray, setDataArray] = useState([]);
 	const [inputValue, setInputValue] = useState({
@@ -14,9 +14,9 @@ const Chat = () => {
 
 	const url = "http://localhost:2000/chat";
 
-	// handleButtonClick = () => {
-	// 	this.setState({stylePath: './chatbot/public/App.scss'});
-	// }
+	const toggleClass = () => {
+		setActive(!isActive);
+	}
 
 	const loadApi = async () => {
 		console.log(JSON.stringify(inputValue))
@@ -64,9 +64,8 @@ const Chat = () => {
 	};
 
 	return (
-		<div >
-			{/* <link rel='stylesheet' type='text/css' href={ process.env.PUBLIC_URL + '/foo.scss' }/>
-			<button type="button" onClick={this.handleButtonClick.bind(this)}>Dark Mode</button> */}
+		<div className={isActive ? "light" : "dark"}>
+			<button onClick={toggleClass} >Dark Mode</button>
 		<div className="center">
 			<div className="container">
 			

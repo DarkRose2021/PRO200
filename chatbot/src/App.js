@@ -1,6 +1,6 @@
 import { Configuration, OpenAIApi } from "openai";
 import React, { useEffect, useState } from "react";
-import "./App2.scss";
+import "./App.scss";
 import Chat from "./pages/Chat";
 
 function App() {
@@ -11,11 +11,7 @@ function App() {
 
 	
 	return (
-		<div className="App">
-			
-			
-			
-			
+		<div className="App">			
 			<Chat />
 		</div>
 	);
