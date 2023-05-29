@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../App.scss";
+// import "../App2.scss";
 
 const Chat = () => {
+	// const [stylePath, setStylePath] = useState('./chatbot/public/App.scss');
+	
 	const [dataArray, setDataArray] = useState([]);
 	const [inputValue, setInputValue] = useState({
 		user: ""
@@ -10,6 +13,10 @@ const Chat = () => {
 	let aiData = ""
 
 	const url = "http://localhost:2000/chat";
+
+	// handleButtonClick = () => {
+	// 	this.setState({stylePath: './chatbot/public/App.scss'});
+	// }
 
 	const loadApi = async () => {
 		console.log(JSON.stringify(inputValue))
@@ -57,7 +64,9 @@ const Chat = () => {
 	};
 
 	return (
-		<div>
+		<div >
+			{/* <link rel='stylesheet' type='text/css' href={ process.env.PUBLIC_URL + '/foo.scss' }/>
+			<button type="button" onClick={this.handleButtonClick.bind(this)}>Dark Mode</button> */}
 		<div className="center">
 			<div className="container">
 			

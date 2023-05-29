@@ -26,7 +26,7 @@ button {
 }
 
 body {
-  background-color: #f3fcf0;
+  background-color: #2C3333;
 }
 
 .center {
@@ -46,27 +46,27 @@ body {
   left: 0;
   padding: 1rem;
   width: 100vw;
-  background-color: #559cad;
+  background-color: #161d1f;
 }
 .form ::-webkit-scrollbar {
   display: none;
 }
 .form form {
   display: block;
-  background-color: #559cad;
+  background-color: #161d1f;
   border-radius: 5px;
   width: 50em;
   padding: 1%;
 }
 .form input {
   width: 20em;
-  background-color: #35606b;
-  border: 6px solid #35606b;
+  background-color: #E7F6F2;
+  border: 6px solid #E7F6F2;
   border-radius: 5px;
   color: #f3fcf0;
 }
 .form button {
-  background-color: #6b4682;
+  background-color: #41656f;
   border: none;
   padding: 2%;
   margin: 1%;
@@ -86,7 +86,7 @@ body {
   overflow-y: auto;
 }
 .container div {
-  background-color: #559cad;
+  background-color: #161d1f;
   display: block;
   padding: 1%;
   overflow: auto;
@@ -94,7 +94,7 @@ body {
   border-radius: 5px;
 }
 .container .user-txt {
-  background-color: #31493c;
+  background-color: #202d31;
   margin-left: 50%;
   float: right;
   width: -moz-fit-content;
@@ -108,7 +108,7 @@ body {
 .container .ai {
   white-space: pre-line;
   overflow-wrap: normal;
-  background-color: #6b2737;
+  background-color: #57747d;
   margin-right: 50%;
   float: left;
   width: -moz-fit-content;
@@ -144,4 +144,4 @@ body {
   text-align: center;
   font-weight: bold;
   color: #2A2A2A;
-}/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App2.css.map */
