@@ -4,12 +4,6 @@ import "./App.scss";
 import Chat from "./pages/Chat";
 
 function App() {
-	
-
-	
-
-
-	
 	return (
 		<div className="App">			
 			<Chat />

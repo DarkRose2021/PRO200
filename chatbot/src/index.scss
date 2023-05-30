@@ -17,10 +17,20 @@ html {
 
 .light{
 	background-color: $bg;
+  height: 89vh;
 }
 
 .dark{
-	background-color: #2A2A2A
+	background-color: #2A2A2A;
+  height: 89vh;
+}
+
+.loadingDark{
+  color: $bg;
+}
+
+.loadingLight{
+  color: $purple;
 }
 
 body{

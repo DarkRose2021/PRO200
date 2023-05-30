@@ -3,12 +3,10 @@ button {
 	margin: 1%;
 }
 
-
-
 .center{
 	@include flex-center();
 }
-// type stuff here
+
 .form {
 	::-webkit-scrollbar{
 		display: none;
@@ -39,7 +37,6 @@ button {
 		border-radius: 5px;
 		color: $bg;
 	}
-
 	button {
 		background-color: $purple;
 		border: none;
@@ -50,10 +47,10 @@ button {
 		cursor: pointer;
 		@include borderRadius();
 	}
-
-	
+	.darkmodeBtn{
+		padding: .5%;
+	}
 }
-
 
 .container {
 	color: $bg;
