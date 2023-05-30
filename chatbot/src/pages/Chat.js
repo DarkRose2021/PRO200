@@ -89,7 +89,7 @@ const Chat = () => {
 			</div>
 
 			{loading ? (
-				<h3
+				<h2
 					className={
 						isActive
 							? "loadingLight loading center"
@@ -97,13 +97,13 @@ const Chat = () => {
 					}
 				>
 					Loading
-				</h3>
+				</h2>
 			) : (
 				<br />
 			)}
 
 			<div className="form">
-				<div>
+				<div className="centerForm">
 					<form onSubmit={handleSubmit}>
 						<input
 							type="text"
@@ -116,13 +116,12 @@ const Chat = () => {
 						<button type="submit" value="submit">
 							Generate Response
 						</button>
-
-						
 					</form>
 					<div className="darkmodeBtn">
-							<button onClick={toggleClass} >Dark Mode</button>
-						</div>
+					<button onClick={toggleClass} >Dark Mode</button>
 				</div>
+				</div>
+				
 			</div>
 		</div>
 	);

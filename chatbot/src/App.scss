@@ -1,7 +1,5 @@
 @import "../src/index.scss";
-button {
-	margin: 1%;
-}
+
 
 .center{
 	@include flex-center();
@@ -10,6 +8,14 @@ button {
 .form {
 	::-webkit-scrollbar{
 		display: none;
+	}
+
+	button {
+		background-color: $purple;
+		border: none;
+		color: $bg;
+		cursor: pointer;
+		@include borderRadius();
 	}
 
 	@include flex-center();
@@ -22,33 +28,43 @@ button {
 	width: 100vw;
 	background-color: $blue;
 
+	.centerForm{
+		@include flex-center();
+		width: 80vw;
+	}
+
 	form {
 		display: block;
 		background-color: $blue;
 		@include borderRadius;
+		margin-left: 30%;
+		margin-right: auto;
 		width: 50em;
 		padding: 1%;
 	}
 
 	input {
+		display: inline-block;
 		width: 20em;
 		background-color: #35606b;
 		border: 6px solid #35606b;
 		border-radius: 5px;
 		color: $bg;
 	}
-	button {
-		background-color: $purple;
-		border: none;
-		padding: 2%;
+
+	button{
+		padding: 1%;
 		margin: 1%;
-		color: $bg;
 		width: fit-content;
-		cursor: pointer;
-		@include borderRadius();
 	}
+
 	.darkmodeBtn{
-		padding: .5%;
+		button{
+			padding: 5%;
+			font-size: 1em;
+		}
+		width: 100px;
+		float: right;
 	}
 }
 
